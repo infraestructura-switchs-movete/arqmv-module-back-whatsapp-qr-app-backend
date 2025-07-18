@@ -1,0 +1,39 @@
+package com.restaurante.bot.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "order_product_delivery")
+public class OrderProductDelivery {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_product_delivery_id")
+    private Long orderProductId;
+
+    @Column(name = "order_transaction_delivery_id")
+    private Long orderTransactionDeliveryId;
+
+    @Column(name = "product_id")
+    private Long productId;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "quantity")
+    private Long quantity;
+
+    @Column(name = "unit_price")
+    private Double unitPrice;
+
+
+
+}
