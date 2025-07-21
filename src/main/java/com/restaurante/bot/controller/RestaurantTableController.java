@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/${app.request.mapping}/restauranttable")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class RestaurantTableController {
 
     private final RestaurantTableInterface restaurantTableInterface;

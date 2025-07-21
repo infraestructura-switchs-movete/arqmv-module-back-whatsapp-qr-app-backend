@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/${app.request.mapping}/order")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class OrderDetailsController {
 
     private final OrderInterface orderInterface;

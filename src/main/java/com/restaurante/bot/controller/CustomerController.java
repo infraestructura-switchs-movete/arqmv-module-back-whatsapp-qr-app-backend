@@ -2,16 +2,13 @@ package com.restaurante.bot.controller;
 
 import com.restaurante.bot.model.Customer;
 import com.restaurante.bot.business.service.CustomerService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/${app.request.mapping}/customers")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class CustomerController {
 
     private final CustomerService customerService;
