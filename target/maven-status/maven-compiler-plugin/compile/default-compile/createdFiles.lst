@@ -50,6 +50,7 @@ com\restaurante\bot\model\Product.class
 com\restaurante\bot\dto\ProductExternalDTO.class
 com\restaurante\bot\dto\OrderResponseDTO.class
 com\restaurante\bot\business\service\RatingService.class
+com\restaurante\bot\config\CorsConfigurationSourceImpl.class
 com\restaurante\bot\repository\CustomerOrderRepository.class
 com\restaurante\bot\repository\OrderRepository.class
 com\restaurante\bot\api\dto\ProductDTO.class
