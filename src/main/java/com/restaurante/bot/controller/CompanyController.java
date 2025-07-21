@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("${app.request.mapping}/company")
+@RequestMapping("/${app.request.mapping}/company")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @Slf4j
