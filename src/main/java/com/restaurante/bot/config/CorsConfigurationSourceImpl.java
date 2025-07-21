@@ -18,7 +18,7 @@ public class CorsConfigurationSourceImpl implements CorsConfigurationSource {
         corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:4000"));
         corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:5175"));
         corsConfiguration.setAllowedOriginPatterns(List.of("http://localhost:5174"));
-        corsConfiguration.setAllowedOriginPatterns(List.of("https://arqmv-module-back-whatsapp-qr-app-backend.onrender.com"));
+        corsConfiguration.setAllowedOriginPatterns(List.of("https://module-landing-page-qr-app-frontend-t0rn.onrender.com"));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PUT", "OPTIONS", "PATCH", "DELETE"));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setExposedHeaders(List.of("Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
