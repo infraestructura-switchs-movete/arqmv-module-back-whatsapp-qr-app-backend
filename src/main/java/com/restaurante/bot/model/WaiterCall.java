@@ -14,7 +14,8 @@ import java.time.LocalDateTime;
 public class WaiterCall {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "WAITERCALL-SEQ", sequenceName = "WAITERCALL_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "WAITERCALL-SEQ")
     @Column(name = "call_id")
     private Integer callId;
 

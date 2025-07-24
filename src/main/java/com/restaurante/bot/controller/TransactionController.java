@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/${app.request.mapping}/transaction")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:3000")
 public class TransactionController {
 
     private final TransactionInterface transactionInterface;

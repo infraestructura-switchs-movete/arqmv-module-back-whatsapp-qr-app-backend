@@ -66,6 +66,23 @@ public interface OrderTransactionRepository extends JpaRepository<OrderTransacti
             "ORDER BY rt.table_id, o.order_id", nativeQuery = true)
     List<Object[]> findAllOrdersEnviadas(@Param("tableNumber")Long tableNumber);
 
+    @Query(value = "SELECT rt.table_number, ts.description, " +
+            "COALESCE(SUM(t.transaction_total), 0), " +
+            "o.order_id, op.product_id, op.name, op.quantity, op.unite_price, " +
+            "(op.quantity * op.unite_price), o.total " +
+            "FROM restaurant_table rt " +
+            "LEFT JOIN transaction t ON rt.table_id = t.table_id " +
+            "LEFT JOIN transaction_status ts ON t.status = ts.transaction_status_id " +
+            "LEFT JOIN order_transaction ot ON t.transaction_id = ot.transaction_id " +
+            "LEFT JOIN customer_order o ON ot.order_id = o.order_id " +
+            "LEFT JOIN order_product op ON o.order_id = op.order_id " +
+            "LEFT JOIN customer c ON c.customer_id = t.customer_id " +
+            "WHERE o.`status` = 3 AND rt.table_number = :tableNumber AND t.`status` = 1 AND c.phone = :phoneNumber " +
+            "GROUP BY rt.table_id, ts.description, o.order_id, op.product_id " +
+            "ORDER BY rt.table_id, o.order_id ", nativeQuery = true)
+    List<Object[]> findAllOrdersNotConfirm(@Param("tableNumber")Long tableNumber,
+                                           @Param("phoneNumber")String phoneNumber);
+
     OrderTransaction findByOrderId(Long orderId);
 
     @Query(value = "SELECT " +

@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/${app.request.mapping}/payment")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class PaymentController {
 
     private final PaymentService paymentService;

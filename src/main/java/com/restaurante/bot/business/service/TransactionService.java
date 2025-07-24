@@ -19,7 +19,6 @@ public class TransactionService implements TransactionInterface {
     private final RestaurantTableRepository restaurantTableRepository;
     private final TransactionRepository transactionRepository;
     private final CustomerRepository customerRepository;
-    private final OrderRepository orderRepository;
     private final OrderProductRepository orderProductRepository;
     private final OrderTransactionRepository orderTransactionRepository;
     private final HistoryRepository historyRepository;

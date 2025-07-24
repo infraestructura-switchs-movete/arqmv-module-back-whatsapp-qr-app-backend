@@ -12,13 +12,16 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Table(name = "order_product")
 public class OrderProduct {
+
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "ORDER-PRODUCT-SEQ", sequenceName = "ORDER_PRODUCT_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER-PRODUCT-SEQ")
     @Column(name = "order_product_id")
     private Integer orderProductId;
 
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
 
     @Column(name = "product_id")
     private String productId;

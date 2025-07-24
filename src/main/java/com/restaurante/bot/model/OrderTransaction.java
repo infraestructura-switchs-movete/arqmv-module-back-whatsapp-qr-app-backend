@@ -18,7 +18,7 @@ public class OrderTransaction {
     private Long orderTransactionId;
 
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
 
     @Column(name = "transaction_id")
     private Long transactionId;

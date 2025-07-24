@@ -16,14 +16,15 @@ import java.time.LocalDateTime;
 public class History {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "HISTORY-SEQ", sequenceName = "HISTORY_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "HISTORY-SEQ")
     @Column(name = "history_id")
     private Integer historyId;
 
     @Column(name = "transaction_id")
     private Long transactionId;
 
-    @Column(name = "date")
+    @Column(name = "history_date")
     private LocalDateTime date;
 
 }

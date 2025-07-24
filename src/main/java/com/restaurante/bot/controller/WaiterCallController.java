@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/${app.request.mapping}/waitercall")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:5173")
 public class WaiterCallController {
 
     private final WaiterCallInterface waiterCallInterface;

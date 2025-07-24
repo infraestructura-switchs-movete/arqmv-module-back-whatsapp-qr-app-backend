@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SellProducts {
 
-    private Long productId;
+    private String productId;
     private String productName;
     private Long quantity;
     private Double price;

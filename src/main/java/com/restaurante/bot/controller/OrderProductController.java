@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/${app.request.mapping}/order_product")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class OrderProductController {
 
     private final OrderProductService orderProductService;

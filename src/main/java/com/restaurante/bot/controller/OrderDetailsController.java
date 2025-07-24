@@ -1,12 +1,10 @@
 package com.restaurante.bot.controller;
 
 import com.restaurante.bot.business.interfaces.OrderInterface;
-import com.restaurante.bot.business.service.OrderDetailsService;
 import com.restaurante.bot.dto.CustomerOrderResponseDTO;
 import com.restaurante.bot.dto.OrderDetailsDTO;
 import com.restaurante.bot.dto.OrderResponseDTO;
 import com.restaurante.bot.model.GenericResponse;
-import com.restaurante.bot.model.Order;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +18,7 @@ import java.util.List;
 @RequestMapping("/${app.request.mapping}/order")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:5173")
 public class OrderDetailsController {
 
     private final OrderInterface orderInterface;
@@ -59,6 +57,19 @@ public class OrderDetailsController {
     public ResponseEntity<CustomerOrderResponseDTO> getOrederByTableNumber(@PathVariable("tableNumber")Integer tableNumber) {
         log.info("se inicia el servicio para traer las ordenes por medio de la mesa del restaurante -> {}", tableNumber);
         return new ResponseEntity<>(orderInterface.getOrederByTableNumber(tableNumber), HttpStatus.OK);
+    }
+
+    @PostMapping("/confirmation")
+    public ResponseEntity<GenericResponse> confirmationOrder(@RequestParam String phoneNumber) {
+        log.info("Se inicia el servicio que confirma la orden");
+        return new ResponseEntity<>(orderInterface.confirmationOrder(phoneNumber), HttpStatus.OK);
+    }
+
+    @GetMapping("/no-confirmed")
+    public ResponseEntity<List<OrderResponseDTO>> noConfirmationOrder(@RequestParam String phoneNumber,
+                                                                      @RequestParam Long tableNumber) {
+        log.info("Se inicia el servicio que trae las ordenes no confirmadas");
+        return new ResponseEntity<>(orderInterface.noConfirmationOrder(tableNumber, phoneNumber), HttpStatus.OK);
     }
 
 }

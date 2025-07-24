@@ -17,7 +17,11 @@ public interface OrderInterface {
 
     List<OrderResponseDTO> getSendOrder(Long tableNumber);
 
+    List<OrderResponseDTO> noConfirmationOrder(Long tableNumber, String phoneNumber);
+
     CustomerOrderResponseDTO getOrederByPhoneNumber(String phoneNumber);
 
     CustomerOrderResponseDTO getOrederByTableNumber(Integer tableNumber);
+
+    GenericResponse confirmationOrder(String phoneNumber);
 }

@@ -18,7 +18,7 @@ import java.util.List;
 @RequestMapping("/${app.request.mapping}/product")
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
 @Slf4j
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "http://localhost:5174")
 public class ProductController {
 
     private final ProductInterface productInterface;

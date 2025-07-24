@@ -16,20 +16,21 @@ import java.util.Date;
 public class Payment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "PAYMENT-SEQ", sequenceName = "PAYMENT_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PAYMENT-SEQ")
     @Column(name = "payment_id")
     private Long id;
 
-    @Column(name = "payment_method")
+    @Column(name = "payment_method", nullable = false)
     private String namePayment;
 
-    @Column(name = "order_id")
+    @Column(name = "order_id", nullable = false)
     private Long orderid;
 
-    @Column(name = "amount")
+    @Column(name = "amount", nullable = false)
     private Double amount;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private Date date;
 
 

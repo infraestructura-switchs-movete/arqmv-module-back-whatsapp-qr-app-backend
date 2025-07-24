@@ -75,13 +75,13 @@ public class OrderDetailsDeliveryService implements IOrderDetailBusiness {
             }
 
             ProductDTO externalProduct = externalProducts.stream()
-                    .filter(p -> p.getId().equals(productDTO.getProductId()))
+                    .filter(p -> p.getIdProducto().equals(productDTO.getProductId()))
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException("Product with ID " + productDTO.getProductId() + " not found in external service"));
 
             OrderProductDelivery orderProduct = new OrderProductDelivery();
             orderProduct.setOrderTransactionDeliveryId(orderDetail.getOrderTransactionDeliveryId());
-            orderProduct.setProductId((externalProduct.getId()));
+            orderProduct.setProductId(String.valueOf(externalProduct.getId()));
             orderProduct.setQuantity(productDTO.getQuantity());
             orderProduct.setName(externalProduct.getData().getDescripcion());
             orderProduct.setUnitPrice(externalProduct.getData().getPrecio());
@@ -106,7 +106,7 @@ public class OrderDetailsDeliveryService implements IOrderDetailBusiness {
                         OrderProductDeliveryResponseDTO::getOrderTransactionDeliveryId,
                         Collectors.mapping(op -> {
                             SellProducts product = new SellProducts();
-                            product.setProductId((op.getProductId()));
+                            product.setProductId(String.valueOf(op.getProductId()));
                             product.setProductName(op.getName());
                             product.setQuantity(op.getQuantity());
                             product.setPrice(op.getPrice());

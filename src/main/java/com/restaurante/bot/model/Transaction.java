@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 public class Transaction {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "TRANSACTION-SEQ", sequenceName = "TRANSACTION_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TRANSACTION-SEQ")
     @Column(name = "transaction_id")
     private Long transactionId;
 
@@ -21,7 +22,7 @@ public class Transaction {
     private Integer tableId;
 
     @Column(name = "customer_id")
-    private Integer customerId;
+    private Long customerId;
 
     @Column(name = "payment_id")
     private Integer paymentId;

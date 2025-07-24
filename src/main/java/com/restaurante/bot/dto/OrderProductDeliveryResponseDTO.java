@@ -11,7 +11,7 @@ public class OrderProductDeliveryResponseDTO {
 
 
     private Long orderTransactionDeliveryId;
-    private Long productId;
+    private String productId;
     private String name;
     private Long quantity;
     private Double price;
